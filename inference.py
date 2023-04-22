@@ -5,12 +5,23 @@ from os import path
 learn_inf = load_learner('models/model1.pkl')
 
 # change below line to img destination #
-basepath = './election-data/images/'
-imgpath = 'bad-2023-04-14T13:24:21.545Z.png'
+basepath = './election-data/'
+imgpath = 'input.png'
 
-img = PILImage.create(path.join(basepath, imgpath))
-
+# img = PILImage.create(path.join(basepath, imgpath))
 
 # print(img)
-pred, pred_idx, probs = learn_inf.predict(img)
-print(f'Prediction: {pred}; Probability: {probs[pred_idx]:.04f}')
+
+
+def predict(img):
+    pred, pred_idx, probs = learn_inf.predict(img)
+    return pred, float(probs[pred_idx])
+
+
+img = PILImage.create(path.join(basepath, imgpath))
+print(predict(img))
+
+# img = PILImage.create()
+
+# pred, pred_idx, probs = learn_inf.predict(img)
+# print(f'Prediction: {pred}; Probability: {probs[pred_idx]:.04f}')
