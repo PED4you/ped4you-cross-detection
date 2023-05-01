@@ -5,7 +5,7 @@ from fastai.vision.all import *
 from PIL import Image
 import uvicorn
 
-learn_inf = load_learner('models/model2.pkl')
+learn_inf = load_learner('models/model-2May.pkl')
 
 
 def predict(img):
