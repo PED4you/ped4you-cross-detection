@@ -2,7 +2,7 @@ from fastai.vision.all import *
 from pathlib import Path
 
 def predict(img):
-    learn_inf = load_learner('models/model-2May-3rd.pkl')
+    learn_inf = load_learner('models/model-2May-8th.pkl')
     pred, pred_idx, probs = learn_inf.predict(img)
     return pred, float(probs[pred_idx])
 
