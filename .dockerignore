@@ -2,5 +2,5 @@
 **\dataset
 fly.toml
 models/
-!models/models2.pkl
+!models/model2.pkl
 election-data/
