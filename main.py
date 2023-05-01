@@ -35,15 +35,20 @@ async def root():
 async def inference(file: UploadFile = File(...)):
     try:
         contents = file.file.read()
-        # inference code here
-        img = PILImage.create(contents)
-        pred, prob = predict(img)
-    except Exception:
-        return {"message": "There was an error uploading the file"}
+    except Exception as e:
+        return {"message": "There was an error uploading the file", 'exception': repr(e)}
     finally:
         file.file.close()
 
+    try:
+        # inference code here
+        img = PILImage.create(contents)
+        pred, prob = predict(img)
+    except Exception as e:
+        return {"message": "There was an error in inferencing", 'exception': repr(e)}
+
     return {"prediction": pred, "probability": prob}
+
 
 if __name__ == "__main__":
     # read from command line args
