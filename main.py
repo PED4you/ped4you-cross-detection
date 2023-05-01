@@ -1,7 +1,9 @@
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 from fastai.vision.all import *
 from PIL import Image
+import uvicorn
 
 learn_inf = load_learner('models/model2.pkl')
 
@@ -12,6 +14,16 @@ def predict(img):
 
 
 app = FastAPI()
+
+origins = ['*']
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
@@ -32,3 +44,7 @@ async def inference(file: UploadFile = File(...)):
         file.file.close()
 
     return {"prediction": pred, "probability": prob}
+
+if __name__ == "__main__":
+    # read from command line args
+    uvicorn.run(app, host='0.0.0.0', port=8000)

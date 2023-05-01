@@ -9,6 +9,6 @@ COPY main.py ./
 COPY inference.py ./
 COPY models/model2.pkl ./models/
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD [ "python", "main.py"]
