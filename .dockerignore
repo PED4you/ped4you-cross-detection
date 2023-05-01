@@ -1,0 +1,6 @@
+# flyctl launch added from .gitignore
+**\dataset
+fly.toml
+models/
+!models/models2.pkl
+election-data/
