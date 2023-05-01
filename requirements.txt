@@ -1,4 +1,5 @@
-fastai
-fastapi
-uvicorn[standard]
-python-multipart
+Pillow==9.2.0
+fastai==2.7.12
+fastapi==0.95.1
+uvicorn[standard]==0.22.0
+python-multipart==0.0.6

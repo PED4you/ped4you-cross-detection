@@ -1,9 +1,9 @@
-FROM fastai/fastai:latest
+FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY requirements-fastapi.txt ./
-RUN pip install -r requirements-fastapi.txt
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY main.py ./
 COPY models/model2.pkl ./models/
