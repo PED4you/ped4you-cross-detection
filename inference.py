@@ -1,12 +1,8 @@
 from fastai.vision.all import *
-from PIL import Image
-from os import path
+from pathlib import Path
 
 learn_inf = load_learner('models/model2.pkl')
 
-# change below line to img destination #
-basepath = './election-data/'
-imgpath = 'input.png'
 
 
 def predict(img):
@@ -14,5 +10,12 @@ def predict(img):
     return pred, float(probs[pred_idx])
 
 
-img = PILImage.create(path.join(basepath, imgpath))
-print(predict(img))
+
+if __name__ == "__main__":
+    # change below line to img destination #
+    basepath = Path('.')
+    imgpath = 'input.png'
+
+    img = PILImage.create(basepath/ imgpath)
+
+    print(predict(img))
