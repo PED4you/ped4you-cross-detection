@@ -1,17 +1,15 @@
 name: Fly Deploy
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     
 jobs:
   deploy:
     name: Deploy app
     runs-on: ubuntu-latest
+    continue-on-error: true # it will fails due to large image size 6GB, let it fail and save the quota
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only --wait-timeout 1200
+      - run: flyctl deploy --remote-only --wait-timeout 30
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
