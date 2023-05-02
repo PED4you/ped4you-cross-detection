@@ -17,7 +17,7 @@ def predict(img):
 
 app = FastAPI(
     title="ped4you-cross-detection",
-    version="2May-14th",
+    version="2May-15th",
     docs_url='/'
 )
 
