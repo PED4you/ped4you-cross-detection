@@ -15,7 +15,11 @@ def predict(img):
     return pred, float(probs[pred_idx])
 
 
-app = FastAPI()
+app = FastAPI(
+    title="ped4you-cross-detection",
+    version="2May-14th",
+    docs_url='/'
+)
 
 origins = ['*']
 
@@ -28,10 +32,13 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.get("/healthz")
+async def check_health():
+    return {"status": "ok"}
 
+@app.get("/warmup")
+async def warm_up():
+    return {"status": "ok"}
 
 @app.post("/inference")
 async def inference(file: UploadFile = File(...)):
