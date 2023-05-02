@@ -1,10 +1,22 @@
 {
 	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"features": {
-		"ghcr.io/devcontainers/features/rust:1": {},
+		"ghcr.io/devcontainers/features/rust:1": {
+			"version": "latest",
+			"profile": "minimal"
+		},
 		"ghcr.io/iterative/features/dvc:1": {},
-		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {
+			"version": "latest"
+		},
 		"ghcr.io/dhoeric/features/flyctl:1": {},
 		"ghcr.io/flexwie/devcontainer-features/op:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python"
+			]
+		}
 	}
 }
