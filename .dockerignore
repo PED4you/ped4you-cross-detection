@@ -1,8 +1,6 @@
 # flyctl launch added from .gitignore
 **\dataset
 fly.toml
-models/
-!models/model2.pkl
 election-data/
 .venv
 **\__pycache__
