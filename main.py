@@ -5,7 +5,7 @@ from fastai.vision.all import *
 from PIL import Image
 import uvicorn
 
-learn_inf = load_learner('models/model-2May-13th.pkl')
+learn_inf = load_learner('models/model-2May-14th.pkl')
 # case of two cross & 3rd, 4th of bad cross
 # case of 2nd, 5th good cross
 
